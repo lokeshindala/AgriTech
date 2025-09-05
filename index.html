@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech Solutions - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">AgriGuide</div>
+        <ul class="nav-links">
+            <li><a href="#" id="navHome">Home</a></li>
+            <li><a href="#" id="navPlants">Plants</a></li>
+            <li><a href="#" id="navSuggest">Suggest Crop</a></li>
+            <li><a href="#" id="navReminders">Reminders</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Welcome to AgriGuide 🌱</h1>
+        <p>Future of Smart Farming</p>
+        <div id="weatherInfo">Today’s Weather: Sunny ☀️ 28°C</div>
+    </header>
+
+    <main class="container">
+        <!-- Feature Cards -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3>Soil Analysis</h3>
+                <p>Analyze your soil composition and get recommendations for improvement:</p>
+                <ul>
+                    <li>pH Level Analysis</li>
+                    <li>Nutrient Content</li>
+                    <li>Soil Type Classification</li>
+                    <li>Improvement Recommendations</li>
+                </ul>
+                <button onclick="document.getElementById('soilDetail').classList.remove('hidden')">Explore</button>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">☀️</div>
+                <h3>Weather Information</h3>
+                <p>Get real-time weather updates and forecasts for your farming location:</p>
+                <ul>
+                    <li>Temperature</li>
+                    <li>Humidity</li>
+                    <li>Rainfall Prediction</li>
+                    <li>Wind Speed & Direction</li>
+                </ul>
+                <button onclick="document.getElementById('weatherDetail').classList.remove('hidden')">Explore</button>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🐛</div>
+                <h3>Pest Control</h3>
+                <p>Identify and manage common agricultural pests effectively:</p>
+                <ul>
+                    <li>Pest Identification</li>
+                    <li>Natural Control Methods</li>
+                    <li>Prevention Strategies</li>
+                    <li>Treatment Recommendations</li>
+                </ul>
+                <button onclick="document.getElementById('pestDetail').classList.remove('hidden')">Explore</button>
+            </div>
+        </section>
+
+        <!-- Soil Detail Section -->
+        <section id="soilDetail" class="hidden">
+            <h2>Soil Analysis Details</h2>
+            <p><strong>Soil Types:</strong> Sandy, Clay, Loamy, Silt.</p>
+            <p><strong>Soil Testing Methods:</strong> Lab testing, DIY kits, visual texture tests.</p>
+            <p><strong>Soil Texture Tests:</strong> Ribbon test, Jar sedimentation test.</p>
+            <p><strong>Improvement Tips:</strong> Use organic compost, pH adjustment with lime/sulfur, water drainage management.</p>
+            <button onclick="document.getElementById('soilDetail').classList.add('hidden')">Close</button>
+        </section>
+
+        <!-- Weather Detail Section -->
+<section id="weatherDetail" class="hidden">
+    <h2>Weather Information Details</h2>
+    <p><strong>Forecasting Tools:</strong> Mobile apps, weather stations, government alerts.</p>
+    <p><strong>Key Factors:</strong> Rain prediction, frost risk, wind impact on crops.</p>
+    <p><strong>Planning Tip:</strong> Use weather data to schedule planting, irrigation, and pest control.</p>
+
+    <div id="liveWeatherBox" style="margin-top: 1.5rem; padding: 1rem; background: #e0f7fa; border-radius: 8px;">
+        <h3>🌦 Live Weather Update:</h3>
+        <p id="liveWeather">Loading weather data...</p>
+    </div>
+
+    <button onclick="document.getElementById('weatherDetail').classList.add('hidden')">Close</button>
+</section>
+        <!-- Pest Detail Section -->
+        <section id="pestDetail" class="hidden">
+            <h2>Pest Control Details</h2>
+            <p><strong>Common Pests:</strong> Aphids, Caterpillars, Beetles, Mites.</p>
+            <p><strong>Natural Control:</strong> Neem oil, companion planting, beneficial insects.</p>
+            <p><strong>Strategies:</strong> Rotate crops, monitor early, keep soil healthy.</p>
+            <p><strong>Treatments:</strong> Organic sprays, pheromone traps, targeted biopesticides.</p>
+            <button onclick="document.getElementById('pestDetail').classList.add('hidden')">Close</button>
+        </section>
+
+        <!-- Search Filter -->
+        <section id="searchSection">
+            <h2>Search Plants</h2>
+            <input type="text" id="plantSearch" placeholder="Search by name or type...">
+        </section>
+
+        <!-- Plants Section -->
+        <section id="plants">
+            <h2>Our Plants</h2>
+            <div id="plantsList" class="plant-grid"></div>
+        </section>
+
+        <!-- Crop Suggestion -->
+        <section id="suggestion">
+            <h2>Suggest Me a Crop</h2>
+            <form id="suggestForm">
+                <select id="soilType" required>
+                    <option value="">Select Soil Type</option>
+                    <option value="Loamy">Loamy</option>
+                    <option value="Sandy">Sandy</option>
+                    <option value="Clay">Clay</option>
+                </select>
+                <select id="season" required>
+                    <option value="">Select Season</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Winter">Winter</option>
+                    <option value="Spring">Spring</option>
+                </select>
+                <button type="submit">Get Suggestions</button>
+            </form>
+            <div id="suggestionsResult"></div>
+        </section>
+
+        <!-- Plant Details Section -->
+        <section id="plantDetails" class="hidden">
+            <h2 id="plantName"></h2>
+            <img id="plantImage" src="" alt="Plant Image" class="plant-img hidden">
+            <p><strong>Type:</strong> <span id="plantType"></span></p>
+            <p><strong>Seasonal Growth:</strong> <span id="seasonalGrowth"></span></p>
+            <p><strong>Soil Requirements:</strong> <span id="soilRequirements"></span></p>
+            <p><strong>Fertilizer Info:</strong> <span id="fertilizerInfo"></span></p>
+            <p><strong>Companion Planting:</strong> <span id="companionPlanting"></span></p>
+            <p><strong>Pests and Diseases:</strong> <span id="pestsAndDiseases"></span></p>
+
+            <h3>Set a Reminder for this Plant</h3>
+            <form id="reminderForm">
+                <select id="userSelect" required>
+                    <option value="">Select User</option>
+                </select>
+                <input type="text" id="title" placeholder="Reminder Title" required>
+                <input type="text" id="description" placeholder="Description" required>
+                <input type="datetime-local" id="date" required>
+                <button type="submit">Add Reminder</button>
+            </form>
+        </section>
+
+        <!-- Reminder Summary -->
+        <section id="reminderSummary">
+            <h2>Your Reminder Summary</h2>
+            <p id="totalReminders">You have 0 reminders.</p>
+            <ul id="upcomingReminders"></ul>
+        </section>
+
+        <!-- Create New User -->
+        <section id="createUser">
+            <h2>Create New User</h2>
+            <form id="userForm">
+                <input type="text" id="newUsername" placeholder="Username" required>
+                <input type="email" id="newEmail" placeholder="Email" required>
+                <button type="submit">Create User</button>
+            </form>
+            <p id="userCreateMessage"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

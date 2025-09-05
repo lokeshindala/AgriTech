@@ -1,0 +1,213 @@
+/* Basic reset and layout */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7fdf9;
+}
+
+.navbar {
+    background-color: #264653;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background: linear-gradient(to right, #d8f3dc, #b7e4c7);
+    padding: 2rem;
+    text-align: center;
+}
+
+.container {
+    padding: 2rem;
+}
+
+/* Feature cards */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: #e6f4ea;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-card h3 {
+    margin-top: 0.5rem;
+}
+
+.feature-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.feature-card ul li::before {
+    content: "• ";
+    color: #2d6a4f;
+}
+
+/* Sections */
+section {
+    margin-bottom: 2.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+input, select, button {
+    padding: 0.6rem;
+    margin: 0.3rem 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #21867a;
+}
+
+/* Plant card grid */
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.plant-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.plant-card:hover {
+    transform: translateY(-4px);
+}
+
+.plant-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.plant-img {
+    display: block;
+    margin: 1rem 0;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+/* Detail sections (Soil, Weather, Pest) */
+#soilDetail,
+#weatherDetail,
+#pestDetail {
+    background: #f0fdf4;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#soilDetail h2,
+#weatherDetail h2,
+#pestDetail h2 {
+    margin-top: 0;
+    color: #2a9d8f;
+}
+
+#soilDetail p,
+#weatherDetail p,
+#pestDetail p {
+    margin: 0.8rem 0;
+    line-height: 1.5;
+    color: #333;
+}
+
+#soilDetail button,
+#weatherDetail button,
+#pestDetail button {
+    margin-top: 1.5rem;
+    background-color: #2a9d8f;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+#soilDetail button:hover,
+#weatherDetail button:hover,
+#pestDetail button:hover {
+    background-color: #21867a;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
